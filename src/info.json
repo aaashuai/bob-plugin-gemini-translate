@@ -1,6 +1,6 @@
 {
   "identifier": "brian.bob-plugin-gemini-translate",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "category": "translate",
   "name": "Gemini Translator",
   "summary": "调用Gemini服务进行翻译",
@@ -64,10 +64,17 @@
       ]
     },
     {
-      "identifier": "custom_prompt",
+      "identifier": "custom_prompt_for_word",
       "type": "text",
       "defaultValue": "",
-      "title": "自定义prompt",
+      "title": "自定义prompt(单词/短语, 空格<=1个)",
+      "desc": "自定义prompt，目前仅在翻译和润色模式下生效，可以使用${detectFrom}获取来源语言，${detectTo}获取目标语言，${text}获取原文本"
+    },
+    {
+      "identifier": "custom_prompt_for_sentence",
+      "type": "text",
+      "defaultValue": "",
+      "title": "自定义prompt(句子)",
       "desc": "自定义prompt，目前仅在翻译和润色模式下生效，可以使用${detectFrom}获取来源语言，${detectTo}获取目标语言，${text}获取原文本"
     },
     {

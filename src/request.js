@@ -48,6 +48,10 @@ const streamRequest = async (contents, { domain, model, api_key, query, onComple
     },
   });
 };
+function replaceAsterisks(inputText) {
+    // 使用正则表达式/g全局匹配所有"*"
+    return inputText.replace(/[*#]/g, '');
+}
 
 const normalRequest = async (contents, { domain, model, api_key, onCompletion }) => {
   $http.request({
@@ -72,7 +76,7 @@ const normalRequest = async (contents, { domain, model, api_key, onCompletion })
           .replace("</End>", "");
         onCompletion({
           result: {
-            toParagraphs: [resultText],
+            toParagraphs: [replaceAsterisks(resultText)],
           },
         });
       }

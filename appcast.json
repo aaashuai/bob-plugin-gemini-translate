@@ -2,6 +2,13 @@
   "identifier": "brian.bob-plugin-gemini-translate",
   "versions": [
     {
+      "version": "0.0.22",
+      "desc": "support prompt for word or sentence",
+      "sha256": "4c4155434d38a030557903bdaf23002bc0cfadfc5e0cc7f3aa54794984d87a00",
+      "url": "https://github.com/aaashuai/bob-plugin-gemini-translate/releases/download/v0.0.22/bob-plugin-gemini-translate_v0.0.21.bobplugin",
+      "minBobVersion": "0.5.0"
+    },
+    {
       "version": "0.0.21",
       "desc": "Update release.yml",
       "sha256": "bb1059de8883b5b95a468e2c3ac19ab83121d4c91d8f3fbb81665a07ae694c74",

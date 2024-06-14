@@ -53,8 +53,15 @@ function generatePrompts(text, mode, query, option) {
   }
   const source_lang = detectFrom || "ZH";
   const target_lang = detectTo || "EN";
-  if (option.custom_prompt) {
-    return option.custom_prompt
+  const spaceCount = text.split(" ").length - 1;
+  var custom_prompt;
+  if (spaceCount <= 1){
+    custom_prompt = option.custom_prompt_for_word;
+  } else {
+    custom_prompt = option.custom_prompt_for_sentence;
+  }
+  if (custom_prompt){
+    return custom_prompt
       .replace(/\$\{text\}/g, text)
       .replace(/\$\{detectFrom\}/g, detectFrom)
       .replace(/\$\{detectTo\}/g, detectTo);
@@ -72,6 +79,7 @@ function generatePrompts(text, mode, query, option) {
 function getConversation(text, mode, query, option) {
   if (mode === "polish" || mode === "translate") {
     const prompt = generatePrompts(text, mode, query, option);
+    //$log.info(prompt);
 
     return [{ role: "user", parts: [{ text: prompt }] }];
   } else if (mode === "chat") {
